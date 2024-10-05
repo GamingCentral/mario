@@ -3,6 +3,7 @@ const lavaContainer = document.getElementById('lava-layer');
 const player = document.getElementById('player');
 const totalBlocks = 100;
 const gravelBlockPositions = [5, 20, 35, 45, 79, 85, 90];
+const upperLayerPositions = [30, 31, 32, 46, 47, 57, 58, 59, 67, 68, 69, 93, 94];
 let scrollAmountRight = 0;
 let scrollAmount = 0;
 let scrollAmountLeft = 0;
@@ -30,6 +31,19 @@ for (let i = 0; i < totalBlocks; i++) {
   lavaDiv.classList.add('block', 'lava-block');
   lavaContainer.appendChild(lavaDiv);
 }
+
+// Adding the upper layer blocks
+upperLayerPositions.forEach((pos) => {
+  const upperLayerBlock = document.createElement('div');
+  upperLayerBlock.classList.add('block', 'solid-block');
+  
+  // Position the block at the correct height (200px above ground level)
+  upperLayerBlock.style.position = 'absolute';
+  upperLayerBlock.style.left = `${pos * 50}px`;
+  upperLayerBlock.style.bottom = '150px';  // 50px (lava) + 50px (ground layer) + 50px (player height) + 50px (new layer)
+
+  blockContainer.appendChild(upperLayerBlock);
+});
 
 player.style.left = `${playerPosition}px`;
 player.style.bottom = '100px'; 
