@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Hide any overflow on the body */
+}
+
+.sky-gradient-07 {
+    background: linear-gradient(to bottom, #757abf 0%,#8583be 60%,#eab0d1 100%);
+    width: 100%;
+    height: 100%;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 5000px !important;
+    position: relative;
+    justify-content: flex-end;
+    overflow-x: hidden; /* No scrollbars */
+    overflow-y: hidden;
+}
+
+#block-layer, #lava-layer {
+    display: flex;
+    position: relative;
+}
+
+.block {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+.solid-block {
+    background-image: url('./images/marioGround.png');
+}
+
+.lava-block {
+    background-image: url('./images/lava.png');
+}
+
+.gravel-block {
+    background-image: url('./images/gravel.jpg');
+}
+
+#player {
+    position: absolute;
+    bottom: 100px; /* Position on the ground */
+    width: 50px; /* Width of Mario */
+    height: 50px; /* Height of Mario */
+    background-size: cover; /* Ensure the image covers the player */
+    transition: bottom 0.2s; /* Smooth transition for jumping */
+}
+
+
+.running {
+    animation: run-animation 0.2s steps(3) infinite; /* Animate running */
+}
+
+@keyframes run-animation {
+    from { background-position: 0; }
+    to { background-position: -150px; } /* Assuming 3 frames in running sprite */
+}
