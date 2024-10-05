@@ -40,7 +40,7 @@ upperLayerPositions.forEach((pos) => {
   // Position the block at the correct height (200px above ground level)
   upperLayerBlock.style.position = 'absolute';
   upperLayerBlock.style.left = `${pos * 50}px`;
-  upperLayerBlock.style.bottom = '150px';  // 50px (lava) + 50px (ground layer) + 50px (player height) + 50px (new layer)
+  upperLayerBlock.style.bottom = '100px';  // 50px (lava) + 50px (ground layer) + 50px (player height) + 50px (new layer)
 
   blockContainer.appendChild(upperLayerBlock);
 });
